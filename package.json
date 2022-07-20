@@ -1,0 +1,51 @@
+{
+  "name": "react-stog",
+  "version": "0.0.3",
+  "description": "React binding for Stog",
+  "license": "MIT",
+  "private": false,
+  "author": "Maksim Yakusik <flamstr@gmail.com>",
+  "repository": "git@github.com:MaximYakusik/react-stog.git",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "format": "prettier -w .",
+    "build:cjs": "cross-env NODE_ENV=development rollup -c --format cjs -o dist/index.js",
+    "build:cjs:min": "cross-env NODE_ENV=production rollup -c --format cjs -o dist/index.min.js",
+    "build:esm": "cross-env NODE_ENV=development rollup -c --format esm -o dist/index.esm.js",
+    "build:esm:min": "cross-env NODE_ENV=production rollup -c --format esm -o dist/index.esm.min.js",
+    "build": "yarn build:cjs && yarn build:cjs:min && yarn build:esm && yarn build:esm:min",
+    "prepare": "yarn build"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "stog": "^0.1"
+  },
+  "dependencies": {
+    "use-sync-external-store": "^1.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@types/use-sync-external-store": "^0.0.3",
+    "babel-jest": "^28.1.2",
+    "benchmark": "^2.1.4",
+    "cross-env": "^7.0.3",
+    "jest": "^28.1.2",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "rollup": "^2.76.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "stog": "^0.1.0",
+    "terser": "^5.14.1"
+  }
+}
